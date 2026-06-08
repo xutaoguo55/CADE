@@ -1,0 +1,11 @@
+Table_Caption,Table 3: Immune cell-type signature scores in FHL PBMC
+Cell Type,Delta (FHL - HC),FDR,Direction
+B cells,-1.74,0.0001,Depleted
+NK cells,-1.16,0.0008,Depleted
+CD8 Tcells,-0.89,0.0011,Depleted
+Monocytes,-0.78,0.0353,Depleted
+CD4 Tcells,-0.49,0.0194,Depleted
+Macrophages,-0.25,0.1615,ns
+Hematopoietic Stem,+0.07,0.6670,ns
+Neutrophils,+1.52,0.0034,Expanded
+Erythrocytes,+1.79,0.0089,Expanded

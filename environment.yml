@@ -1,0 +1,60 @@
+name: cade
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  # Core
+  - r-base=4.4.0
+  - r-essentials
+  - python=3.9
+
+  # Bioconductor (core analysis)
+  - bioconductor-limma=3.62.1
+  - bioconductor-gsva=2.4.9
+  - bioconductor-geoquery=2.74.1
+  - bioconductor-sva=3.54.0
+  - bioconductor-ruvseq=1.40.0
+  - bioconductor-pcamethods
+  - bioconductor-biobase
+  - bioconductor-biocgenerics
+  - bioconductor-edger
+
+  # CRAN
+  - r-quadprog=1.5_8
+  - r-proc=1.18.5
+  - r-wgcna=1.72_5
+  - r-fgsea
+  - r-msigdbr
+  - r-dplyr
+  - r-tibble
+  - r-ggplot2
+  - r-patchwork
+  - r-pheatmap
+  - r-gplots
+  - r-mass
+  - r-readxl
+  - r-openxlsx
+  - r-cowplot
+  - r-ggrepel
+  - r-scales
+
+  # Platform annotation
+  - bioconductor-hgu133plus2.db
+  - bioconductor-annotationdbi
+  - bioconductor-org.hs.eg.db
+
+  # Benchmark comparison
+  - bioconductor-epic
+
+  # Python for figure generation
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - scikit-learn
+
+  # Reproducibility
+  - pip
+  - pip:
+    - session-info

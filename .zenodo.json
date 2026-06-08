@@ -1,0 +1,64 @@
+{
+  "title": "CADE: a reference-free coefficient-sensitivity ranking workflow for bulk differential expression",
+  "upload_type": "software",
+  "description": "CADE is a reference-free coefficient-sensitivity ranking workflow for bulk transcriptomic studies where cell-composition shifts are expected but disease-matched single-cell references are unavailable. The software derives marker-based relative composition weights, fits paired unadjusted and composition-adjusted limma models, and reports Composition Confounding Index outputs with signed labels, denominator handling, bootstrap rank stability, permutation calibration, threshold scans, and ILR coordinate sensitivity.",
+  "creators": [
+    {
+      "name": "Zheng, Haiqing"
+    },
+    {
+      "name": "Wei, Qi"
+    },
+    {
+      "name": "Jiang, Hongbing"
+    },
+    {
+      "name": "Huang, Junwei"
+    },
+    {
+      "name": "Wei, Xiaolei"
+    },
+    {
+      "name": "Wei, Yongqiang"
+    },
+    {
+      "name": "Feng, Ru"
+    },
+    {
+      "name": "Guo, Xutao",
+      "affiliation": "Department of Hematology, Nanfang Hospital, Southern Medical University"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bulk transcriptomics",
+    "differential expression",
+    "cell composition",
+    "coefficient sensitivity",
+    "limma",
+    "compositional data analysis"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE26050",
+      "relation": "isSupplementedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28750",
+      "relation": "isSupplementedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE66099",
+      "relation": "isSupplementedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207633",
+      "relation": "isSupplementedBy",
+      "scheme": "url"
+    }
+  ],
+  "version": "1.1.0"
+}

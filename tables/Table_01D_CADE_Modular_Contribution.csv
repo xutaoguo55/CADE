@@ -1,0 +1,10 @@
+Table_Caption,Table 1D: Modular contribution of CADE beyond a conventional marker-covariate adjusted DE table
+CADE_module,Output_added_beyond_adjusted_DE,Validation_or_diagnostic_role,Interpretation_boundary
+Marker-derived composition weights,Reference-free relative weights from curated markers,PBMC and MAS pseudobulk test broad lineage rank recovery,Relative internal weights not absolute proportions
+Paired unadjusted and adjusted limma models,"Matched logFC_unadj, logFC_adj, SE, t, p, and FDR fields",Synthetic and pseudobulk benchmarks test DE recovery under bias,Bulk coefficients not cell-type-specific effects
+Bounded CCI ratio,"Per-gene coefficient-sensitivity score in [0,1]",Bias-gradient and pseudobulk benchmarks test signal separation,Sensitivity estimand not causal mediation fraction
+Signed coefficient-change labels,"Attenuation, amplification, reversal, and stable categories",Prevents high CCI from being read as one mechanism,Labels depend on the paired model specification
+Denominator handling,Legacy and stabilized CCI with undefined-case tracking,Shows when low-baseline effects drive unstable ratios,Legacy and stabilized CCI are distinct estimands
+Marker-dropout bootstrap,Rank intervals and top-rank stability probabilities,Tests whether priorities survive marker perturbation,Supports ranking not exact 95% coverage
+Label permutation and threshold scans,Empirical null and parameter-sensitivity summaries,Defines a practical noise floor for small-N settings,Sanity check not a formal classifier
+ILR coordinate-sensitivity layer,Raw-weight versus ILR CCI and selected balance covariates,Identifies coordinate-dependent rankings,ILR balances are contrasts not named cell types

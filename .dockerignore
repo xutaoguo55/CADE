@@ -1,0 +1,16 @@
+.git
+.DS_Store
+*.Rproj
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+submission_docs
+archive
+retired_figures_*
+submission_upload_bmc_*
+submission_upload_nargab_*
+*bak-*
+*.zip
+manuscript/docx_embedded_figures_png
+manuscript/*_with_figures.md

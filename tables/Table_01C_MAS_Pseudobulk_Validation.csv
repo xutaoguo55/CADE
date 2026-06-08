@@ -1,0 +1,10 @@
+Table_Caption,Table 1C: CADE MAS pseudobulk validation — marker-derived weights vs. scRNA-seq ground truth
+CADE Cell Type,scRNA-seq Ground Truth,Pearson r,RMSE,MAE,Mean CADE,Mean GT
+CD4 T cells,CD4_T_Cells + CD4_Naive + CD4_TCM,0.915,0.125,0.109,0.147,0.296
+Macrophages,Macrophages,0.800,0.077,0.061,0.099,0.154
+NK cells,NK,0.799,0.058,0.044,0.103,0.126
+B cells,B_Naive + Plasmablast,0.775,0.058,0.043,0.119,0.088
+CD8 T cells,CD8_T_Cells + CD8_Naive + CD8_TEM,0.747,0.096,0.076,0.194,0.200
+Erythrocytes,Eryth,0.738,0.079,0.066,0.072,0.058
+Monocytes,CD14_Mono + CD16_Mono,0.675,0.080,0.061,0.206,0.338
+Neutrophils,(none),—,—,—,—,—

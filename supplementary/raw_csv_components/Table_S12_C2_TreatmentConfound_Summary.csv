@@ -1,0 +1,4 @@
+"Scenario","n_treated","mean_abs_delta_moderate","mean_abs_delta_extreme","max_delta_moderate","max_delta_extreme","IL1B_delta_moderate","IL1B_delta_extreme","CXCL8_delta_moderate","CXCL8_delta_extreme","TNF_delta_moderate","TNF_delta_extreme"
+"3/11 (25%%)",3,0.18785,0.2446875,-0.4099,-0.481,-0.4099,-0.481,-0.3605,-0.4379,-0.295,-0.376
+"6/11 (55%%)",6,0.374321875,0.48863125,-0.7984,-0.9871,-0.7984,-0.9871,-0.7152,-0.8705,-0.5975,-0.7634
+"11/11 (100%%)",11,0.688275,0.896815625,-1.4893,-1.7949,-1.4893,-1.7949,-1.3166,-1.5817,-1.1033,-1.4063

@@ -1,0 +1,7 @@
+Table_Caption,Table 1A: CADE benchmark performance across composition bias gradient (mean of 3 replicates)
+Bias Level,AUROC CADE,AUROC Unadj,CCI True DE,CCI Background,CCI Separation
+0% (Balanced),1.000,1.000,0.038,0.354,0.316
+10%,1.000,1.000,0.059,0.501,0.442
+25%,1.000,1.000,0.059,0.443,0.384
+50%,1.000,0.989,0.161,0.647,0.486
+100% (FHL-like),0.996,0.902,0.334,0.696,0.362
