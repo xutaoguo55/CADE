@@ -3,6 +3,7 @@ message: "If you use CADE, please cite the manuscript and archived software rele
 title: "CADE: a reference-free coefficient-sensitivity ranking workflow for bulk differential expression"
 version: "1.1.0"
 date-released: "2026-06-01"
+doi: "10.5281/zenodo.20603524"
 license: "MIT"
 authors:
   - family-names: "Zheng"
@@ -31,6 +32,7 @@ keywords:
   - "limma"
   - "compositional data analysis"
 repository-code: "https://github.com/xutaoguo55/CADE"
+url: "https://zenodo.org/records/20603524"
 preferred-citation:
   type: article
   title: "CADE: a reference-free coefficient-sensitivity ranking workflow for bulk differential expression"

@@ -30,6 +30,8 @@
     }
   ],
   "license": "MIT",
+  "access_right": "restricted",
+  "doi": "10.5281/zenodo.20603524",
   "keywords": [
     "bulk transcriptomics",
     "differential expression",
@@ -39,6 +41,18 @@
     "compositional data analysis"
   ],
   "related_identifiers": [
+    {
+      "identifier": "https://github.com/xutaoguo55/CADE",
+      "relation": "isSupplementTo",
+      "scheme": "url",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://github.com/xutaoguo55/CADE/releases/tag/v1.1.0",
+      "relation": "isSupplementTo",
+      "scheme": "url",
+      "resource_type": "software"
+    },
     {
       "identifier": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE26050",
       "relation": "isSupplementedBy",
