@@ -123,7 +123,7 @@ All analyses were performed in R v4.4.0 (the development R v4.5.3 was used for l
 
 ### CADE benchmark validation
 
-Benchmark results are summarised in Figure 2 and Tables 1A–1D. On the dose-response synthetic benchmark, CADE maintained AUROC ≥ 0.996 at all bias levels, while standard limma declined from 1.000 at 0% bias to 0.902 at 100% bias (Table 1A). True DE genes showed consistently low CCI (mean 0.038–0.334), whereas background genes showed higher CCI (mean 0.354–0.696); the 0%-bias background mean of 0.354 establishes the noise floor arising from random covariate–expression correlations and degrees-of-freedom loss.
+Benchmark results are summarised in Figure 2 and Tables 1A–1G. On the dose-response synthetic benchmark, CADE maintained AUROC ≥ 0.996 at all bias levels, while standard limma declined from 1.000 at 0% bias to 0.902 at 100% bias (Table 1A). True DE genes showed consistently low CCI (mean 0.038–0.334), whereas background genes showed higher CCI (mean 0.354–0.696); the 0%-bias background mean of 0.354 establishes the noise floor arising from random covariate–expression correlations and degrees-of-freedom loss.
 
 **Table 1A: CADE benchmark performance across composition bias gradient (mean of 3 replicates)**
 
@@ -154,7 +154,7 @@ On the PBMC-inspired benchmark (96 unique markers, 8 cell types), CADE weights a
 | Intended small-N, rare-disease use | Limited | Possible | Not cell-composition-specific | Reference-dependent | Limited if no scRNA ref | **Primary use case** |
 | Operating recommendation | Default DE | Quick composition check | Hidden/unwanted variation adjustment | When matched reference available | When cell-level DE is the question | **When reference is unavailable and coefficient stability matters** |
 
-The matched-nnls results in Table 1B define an ideal matched-reference comparator and should not be generalised to unmatched reference-based workflows. A cross-platform ferroptosis heatmap comparing FHL to other HLH subtypes is shown in Supplementary Figure S1, and the extended 5-method synthetic benchmark is in Supplementary Figure S5.
+The matched-nnls results in Table 1B define an ideal matched-reference comparator and should not be generalised to unmatched reference-based workflows. We therefore added a separate empirical comparator benchmark with simulated ground truth (Table 1F and Supplementary Figure S11). This benchmark compared standard limma, limma plus marker covariates, limma plus SVA, limma plus RUVg, matched-NNLS plus limma, mismatched-NNLS plus limma, oracle-proportion limma, CADE-lite, CADE-full and CADE-ILR across 0-100% composition bias. At 100% bias, all adjusted methods retained high true-DE AUROC (CADE-lite 0.9998; limma+marker 0.9998; matched-NNLS 0.9997; oracle 0.9997), but unadjusted limma, SVA and RUVg placed more composition-driven genes in the top 100 ranked genes (0.333, 0.360 and 0.397, respectively) than CADE-lite (0.080), matched-NNLS (0.043) or oracle adjustment (0.040). CADE additionally returned a CCI stable-versus-composition ranking with AUROC 0.957-0.961 at 100% bias, a diagnostic output not produced by the comparator workflows. Runtime/scalability measurements (Table 1G and Supplementary Figure S11) showed near-linear runtime growth for CADE-lite/CADE-ILR across 1000-6000 genes and higher but still sub-second runtime for the six-iteration CADE-full refinement in these benchmark matrices; 25 and 50 marker-dropout bootstrap iterations on a 3000-gene, 48-sample matrix took 0.56 and 1.10 seconds, respectively. These runtime numbers are hardware- and implementation-specific and are reported as reviewer-testable package benchmarks rather than universal performance claims. A cross-platform ferroptosis heatmap comparing FHL to other HLH subtypes is shown in Supplementary Figure S1, and the extended 5-method synthetic benchmark is in Supplementary Figure S5.
 
 ### CADE worked example in FHL PBMCs: CCI-based ranking
 
@@ -428,6 +428,8 @@ AI-assisted tools were used for language editing, structural organisation, forma
 **Supplementary Figure S9:** WGCNA co-expression analysis (exploratory). (A) All 15 module–FHL correlations. (B) Module size versus |Pearson r|, bubble size proportional to −log₁₀(FDR). (C) Module hub-gene network. This analysis is strictly exploratory; see Limitation 8.
 
 **Supplementary Figure S10:** TF target-gene signature scoring (not TF activity). (A) Per-target Δ for seven transcriptional regulators. (B) Aggregate target-gene Δ with FDR significance. This measures mean log2 expression of curated targets, not TF binding or causal activity.
+
+**Supplementary Figure S11:** Empirical comparator and runtime/scalability benchmark. (A) True cell-intrinsic DE AUROC across 0-100% composition bias for standard limma, marker-covariate limma, SVA, RUVg, matched/mismatched NNLS adjustment, oracle-proportion adjustment, CADE-lite, CADE-full and CADE-ILR. (B) Fraction of composition-driven non-DE genes among the top 100 ranked genes. (C) CADE CCI AUROC for separating stable cell-intrinsic DE from composition-sensitive genes. (D) Runtime scaling for CADE-lite, CADE-full and CADE-ILR across benchmark matrix sizes.
 
 
 

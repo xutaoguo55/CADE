@@ -9,7 +9,7 @@ Analysis scripts and supplementary data tables for the manuscript:
 ## Contents
 
 - **Core CADE method**: `cade_method.R`
-- **Benchmarks**: synthetic dose-response, PBMC ground-truth, scRNA-seq pseudobulk, real-data AUROC
+- **Benchmarks**: synthetic dose-response, PBMC ground-truth, scRNA-seq pseudobulk, empirical comparator benchmark, runtime/scalability benchmark
 - **FHL application**: GEO download, DE, GSVA, WGCNA, TF target-gene scoring
 - **External validation**: sepsis (GSE28750, GSE66099), MAS pseudobulk
 - **Supplementary tables S1-S8**: consolidated workbook of full DE results, CCI outputs, benchmarks, validation outputs, sensitivity analyses, CADE-ILR rank-stability outputs, and multi-seed bootstrap checks; original CSV components are retained for reproducibility
@@ -50,7 +50,7 @@ MIT License. See the package-level `LICENSE` file.
 
 ## Availability Note
 
-The submission package includes the complete analysis scripts, run-order notes, dependency summary, supplementary output tables, `CITATION.cff`, Zenodo metadata, and a release-ready supplementary software archive. Cite the supplementary software archive unless a public repository or DOI is created before submission.
+The submission package includes the complete analysis scripts, run-order notes, dependency summary, supplementary output tables, `CITATION.cff`, Zenodo metadata, a public GitHub repository, and a restricted Zenodo archive DOI. Cite the restricted Zenodo archive DOI `10.5281/zenodo.20603524` and the public repository `https://github.com/xutaoguo55/CADE`.
 
 ## Contact
 

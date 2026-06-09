@@ -21,7 +21,7 @@ docker run --rm -v $(pwd)/analysis_output:/cade/analysis_output cade:1.1.0 \
   Rscript code/run_all.R
 ```
 
-Expected runtime: ~19 min (full), ~12 min (--skip-benchmarks).
+Expected runtime: ~20-21 min (full), ~12 min (--skip-benchmarks).
 
 ### Option 2: Conda
 
@@ -73,6 +73,7 @@ After a successful run, the following directories are populated:
 | `code/geo_de_analysis.R` | GEO download + standard DE | 3-5 min |
 | `code/cade_pbmc_benchmark.R` | PBMC benchmark | 2-3 min |
 | `code/benchmark_method_comparison.R` | Multi-method comparison | 2-3 min |
+| `code/empirical_comparator_runtime_benchmark.R` | Empirical comparator + runtime/scalability benchmark | 1-2 min |
 
 ## Data Sources
 

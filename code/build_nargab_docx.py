@@ -36,6 +36,7 @@ FIGURE_INSERTS = {
     "SuppFig S5.": "SuppFigure_S5_Extended_Benchmark.png",
     "SuppFig S6.": "SuppFigure_S6_Parameter_Sensitivity.png",
     "SuppFig S7.": "SuppFigure_S7_CADE_ILR_RankStability.png",
+    "SuppFig S11.": "SuppFigure_S11_Comparator_Runtime_Benchmark.png",
 }
 
 
@@ -88,7 +89,7 @@ def append_figures():
     h = doc.add_heading("Figure Appendix (embedded images)", level=1)
 
     main_figs = ["Figure 1.", "Figure 2.", "Figure 3.", "Figure 4.", "Figure 5.", "Figure 6.", "Figure 7."]
-    supp_figs = ["SuppFig S1.", "SuppFig S2.", "SuppFig S3.", "SuppFig S4.", "SuppFig S5.", "SuppFig S6.", "SuppFig S7."]
+    supp_figs = ["SuppFig S1.", "SuppFig S2.", "SuppFig S3.", "SuppFig S4.", "SuppFig S5.", "SuppFig S6.", "SuppFig S7.", "SuppFig S11."]
 
     for prefix in main_figs + supp_figs:
         pngs = FIGURE_INSERTS.get(prefix, [])

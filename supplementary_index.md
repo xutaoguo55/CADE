@@ -3,8 +3,8 @@
 ## Table of Contents
 
 1. **Main Figures (1-7)**: workflow, benchmark validation, FHL CCI ranking, cell-composition profile, pathway activity, WGCNA, target-gene signatures
-2. **Supplementary Figures (S1-S7)**: cross-disease heatmap, sepsis validation, MAS pseudobulk validation, sensitivity analyses, extended benchmark, parameter sensitivity, CADE-ILR rank stability
-3. **Main Tables (1A-5)**: dose-response benchmark, scRNA-seq pseudobulk benchmark, MAS pseudobulk validation, modular contribution, FHL ferroptosis panel, immune cell-type scores, ferroptosis gene expression, targeted enrichment
+2. **Supplementary Figures (S1-S7, S11)**: cross-disease heatmap, sepsis validation, MAS pseudobulk validation, sensitivity analyses, extended benchmark, parameter sensitivity, CADE-ILR rank stability, empirical comparator/runtime benchmark
+3. **Main Tables (1A-1G, 2-5)**: dose-response benchmark, scRNA-seq pseudobulk benchmark, MAS pseudobulk validation, modular contribution, empirical comparator benchmark, runtime/scalability benchmark, FHL ferroptosis panel, immune cell-type scores, ferroptosis gene expression, targeted enrichment
 4. **Supplementary Tables (S1-S8 groups)**: GSE26050 DE and reproducibility checks; marker sets and pathway scores; WGCNA and cross-disease context; primary FHL CADE outputs and CCI calibration; benchmark outputs; external validation and MAS pseudobulk validation outputs; parameter sensitivity; CADE-ILR robustness
 5. **Software**: `CADE_public_software_v1.1.0_2026-06-01.zip` (MIT license)
 
@@ -43,6 +43,7 @@
 | Figure S5 | `SuppFigure_S5_Extended_Benchmark.tif` | (A) Synthetic 5-method benchmark; (B) Panel CCI by cell-type tracking category; (C) Genome-wide CCI vs \|logFC\| landscape; (D) Per-module CCI Mann-Whitney with BH-FDR; (E) CCI density across composition-sensitivity module classes; (F) Synthesis text panel |
 | Figure S6 | `SuppFigure_S6_Parameter_Sensitivity.tif` | Parameter sensitivity analyses: (A) marker number and noise fraction effects on AUROC, proportion correlation, and CCI separation; (B) QP tolerance and max-iteration effects on convergence, AUROC, and runtime; (C) number of cell-type covariates (`top_cts`) vs AUROC and cumulative variance explained |
 | Figure S7 | `SuppFigure_S7_CADE_ILR_RankStability.tif` | CADE-ILR marker-dropout bootstrap CCI and probability of top-5 low-CCI rank stability for the 20-gene FHL panel |
+| Figure S11 | `SuppFigure_S11_Comparator_Runtime_Benchmark.tif` | Empirical comparator and runtime/scalability benchmark: true-DE AUROC, composition-driven top-100 fraction, CCI stable-vs-composition ranking, and runtime scaling |
 
 ## Main Text Tables
 
@@ -52,6 +53,8 @@
 | Table 1B | `Table_01B_scRNA_Pseudobulk_Benchmark.csv` | Section 3.1 | Sparse-marker scRNA-seq benchmark |
 | Table 1C | `Table_01C_MAS_Pseudobulk_Validation.csv` | Section 3.1 | MAS pseudobulk validation |
 | Table 1D | `Table_01D_CADE_Modular_Contribution.csv` | Section 3.1 | Modular contribution of CADE beyond a conventional marker-covariate adjusted DE table |
+| Table 1F | `Table_01F_Empirical_Comparator_Benchmark.csv` | Section 3.1 | Empirical comparator benchmark on simulated ground truth |
+| Table 1G | `Table_01G_Runtime_Scalability.csv` | Section 3.1 | Runtime and object-footprint scalability benchmark |
 | Table 2  | `Table_02_CADE_Ferroptosis_Panel.csv` | Section 3.2 | CADE composition-adjusted DE for 19-gene ferroptosis panel |
 | Table 3  | `Table_03_Immune_CellType_Scores.csv` | Section 3.3 | Immune cell-type signature scores |
 | Table 4  | `Table_04_Ferroptosis_Gene_Expression.csv` | Section 3.4 | Ferroptosis gene expression |
@@ -76,6 +79,7 @@ The formal supplementary tables have been consolidated into eight themed workshe
 | S10 (extension) | GSE26050 pathway-enrichment comparison | Table_S43_GSE26050_PathwayEnrichment, Table_S44_CADE_Top20_vs_GSE26050 | Top-100 CADE DE genes are enriched for inflammatory (19x) and inflammasome (30x) pathways but NOT for cytotoxic, IFN, or JAK-STAT pathways; supports FHL as secondary inflammation |
 | S11 (extension) | Null-control seed sensitivity | Table_S45_NullControl_10Seeds, Table_S45_NullControl_10Seeds_Summary | 10-seed null-control CCI distribution is stable (mean 0.405-0.530, SD of seed means 0.034) |
 | S12 (extension) | Treatment sensitivity analysis | Table_S12_C2_TreatmentConfound_Summary, Table_S12_C2_TreatmentConfound_3of11, Table_S12_C2_TreatmentConfound_6of11, Table_S12_C2_TreatmentConfound_11of11 | 100-replicate sensitivity simulation of hypothetical dexamethasone/etoposide exposure at 25%, 50%, and 100% treatment coverage; quantifies potential logFC shifts for 32 drug-responsive genes if treatment-naïve status were misclassified (Supplementary Table S12) |
+| S13 (extension) | Empirical comparator and runtime/scalability benchmark | Table_S46_EmpiricalComparator_Raw, Table_S47_RuntimeScalability_Raw | Replicate-level comparator benchmark and measured runtime/object-footprint outputs used for Table 1F, Table 1G, and Supplementary Figure S11 |
 
 ## Core Analysis Scripts
 

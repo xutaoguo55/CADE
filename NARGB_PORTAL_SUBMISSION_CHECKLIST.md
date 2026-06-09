@@ -32,7 +32,7 @@ Affiliations:
 - Main tables: upload CSV files in `tables/`
 - Supplementary table workbook: `supplementary/CADE_Supplementary_Tables_S1-S8.xlsx`
 - Supplementary raw components: `supplementary/raw_csv_components/`
-- Software/reproducibility package: `CADE_NARGeB_submission_upload_2026-06-09_final_with_restricted_zenodo.zip`
+- Software/reproducibility package: `CADE_NARGeB_submission_upload_2026-06-09_final_no_github_release.zip`
 
 ## Abstract
 
@@ -60,4 +60,4 @@ CADE v1.1.0 is included in the submission software package and mirrored in the p
 
 ## Final upload checksum
 
-Use the local SHA256 recorded in `CHECKSUMS_SHA256.txt` for `CADE_NARGeB_submission_upload_2026-06-09_final_with_restricted_zenodo.zip`.
+Use the local SHA256 recorded in `CHECKSUMS_SHA256.txt` for `CADE_NARGeB_submission_upload_2026-06-09_final_no_github_release.zip`.
