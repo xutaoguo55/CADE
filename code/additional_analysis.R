@@ -261,7 +261,7 @@ p1 <- ggplot(death_results, aes(x=Pathway, y=Delta, fill=Delta)) +
   scale_fill_gradient2(low="#3498DB", mid="white", high="#E74C3C") +
   coord_flip() +
   plt_theme +
-  labs(title="Programmed Cell Death Pathway Enrichment in FHL Bone Marrow",
+  labs(title="Programmed Cell Death Pathway Enrichment in FHL Whole Blood",
        subtitle="GSVA per-sample enrichment scores (FHL vs HC)",
        y="Δ Enrichment Score (FHL - HC)", x="")
 

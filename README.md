@@ -41,7 +41,6 @@ submission_upload_nargab_2026-06-04/
 │   ├── README.md
 │   ├── README_RUN_ORDER.md
 │   └── DEPENDENCIES.md
-└── submission_docs/                     # Local internal audit docs; not versioned or uploaded
 ```
 
 ---
@@ -75,10 +74,9 @@ submission_upload_nargab_2026-06-04/
 
 ---
 
-## Internal notes (not for upload)
+## Archival notes
 
 - The submission package consolidates figures, tables, code, and supplementary data.
-- The `submission_docs/` directory contains internal audit records for local review only and should not be uploaded to the NAR Ge&B ScholarOne system.
 - The `.zenodo.json` and `CITATION.cff` are ready for the Zenodo archival workflow at acceptance.
 
 
