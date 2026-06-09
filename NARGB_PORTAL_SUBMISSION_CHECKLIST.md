@@ -25,8 +25,9 @@ Affiliations:
 
 ## Files to upload
 
-- Main manuscript: `manuscript/CADE_NARGeB_manuscript.docx`
-- Cover letter: `cover_letter.md`
+- Initial submission manuscript PDF: `01_main/CADE_NARGeB_manuscript.pdf`
+- Editable manuscript source if requested: `01_main/CADE_NARGeB_manuscript.docx`
+- Cover letter: `02_cover_letter/CADE_NARGeB_cover_letter.pdf` or `02_cover_letter/CADE_NARGeB_cover_letter.docx`
 - Figures: upload all TIF files in `figures/`
 - Main tables: upload CSV files in `tables/`
 - Supplementary table workbook: `supplementary/CADE_Supplementary_Tables_S1-S8.xlsx`
@@ -59,4 +60,4 @@ CADE v1.1.0 is available from the public GitHub release at `https://github.com/x
 
 ## Final upload checksum
 
-Use the current SHA256 recorded after the final package is rebuilt.
+Use the SHA256 recorded in the GitHub release notes for `CADE_NARGeB_submission_upload_2026-06-09_final_with_restricted_zenodo.zip`.
