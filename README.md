@@ -87,7 +87,7 @@ The `renv.lock` file is the authoritative version record. To verify reproducibil
 1. Open the project in R 4.4.0+ with `renv` installed
 2. Run `renv::restore()` to install the exact R package versions
 3. Run `Rscript code/run_all.R --skip-benchmarks` for a ~12-minute end-to-end FHL analysis
-4. Run `Rscript code/run_all.R` for a ~19-minute full pipeline including benchmarks
+4. Run `Rscript code/run_all.R` for a ~20-21-minute full pipeline including benchmarks and reviewer-facing diagnostics
 
 Expected outputs are written to `analysis_output/CADE/` and `figures/`. The submission package also includes the consolidated `CADE_Supplementary_Tables_S1-S8.xlsx` workbook for direct comparison with published results.
 

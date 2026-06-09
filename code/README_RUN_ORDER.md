@@ -41,10 +41,11 @@ Use `--skip-benchmarks` for routine reproducibility checks of the FHL worked exa
 10. Generate PBMC benchmark outputs unless `--skip-benchmarks` is used.
 11. Generate sepsis external-validation outputs unless `--skip-benchmarks` is used.
 12. Generate empirical comparator and runtime/scalability benchmark outputs unless `--skip-benchmarks` is used.
+13. Generate reviewer-facing model metadata, parameter, and collinearity diagnostics.
 
 ## Runtime
 
-Expected runtime is approximately 20-21 minutes on a recent laptop for the full workflow. The `--skip-benchmarks` mode runs the core analysis in approximately 12 minutes; the CADE-ILR step uses 200 marker-dropout bootstrap iterations and takes about 2 minutes on the current machine. The empirical comparator/runtime benchmark adds approximately 1-2 minutes on the current machine.
+Expected runtime is approximately 20-21 minutes on a recent laptop for the full workflow. The `--skip-benchmarks` mode runs the core analysis in approximately 12 minutes; the CADE-ILR step uses 200 marker-dropout bootstrap iterations and takes about 2 minutes on the current machine. The empirical comparator/runtime benchmark adds approximately 1-2 minutes on the current machine. The model metadata and collinearity-diagnostics step runs in under 1 second.
 
 All stochastic steps use fixed seeds where applicable. The CADE-ILR step accepts `--seed`, `--n-bootstrap`, `--top-cts`, and `--out-dir` arguments for reproducibility checks without overwriting the main outputs. For example:
 

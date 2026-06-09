@@ -26,10 +26,10 @@ for (i in seq_along(args)) {
   }
 }
 if ("--step" %in% args && is.null(single_step)) {
-  stop("--step requires an integer value from 1 to 11.")
+  stop("--step requires an integer value from 1 to 13.")
 }
-if (!is.null(single_step) && (is.na(single_step) || single_step < 1 || single_step > 12)) {
-  stop("--step must be an integer from 1 to 12.")
+if (!is.null(single_step) && (is.na(single_step) || single_step < 1 || single_step > 13)) {
+  stop("--step must be an integer from 1 to 13.")
 }
 
 # ── Path configuration ─────────────────────────────────────────
@@ -125,7 +125,8 @@ steps <- list(
   list(9, "cade_real_scRNA_benchmark_v2.R","Real scRNA-seq benchmark (standalone)"),
   list(10, "cade_pbmc_benchmark.R",       "PBMC benchmark (standalone)"),
   list(11, "cade_external_validation_v4.R","Sepsis external validation (standalone)"),
-  list(12, "empirical_comparator_runtime_benchmark.R","Empirical comparator + runtime/scalability benchmark")
+  list(12, "empirical_comparator_runtime_benchmark.R","Empirical comparator + runtime/scalability benchmark"),
+  list(13, "generate_model_metadata_table.R","Model metadata, parameters and collinearity diagnostics")
 )
 
 # ── Run steps ──────────────────────────────────────────────────
