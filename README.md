@@ -26,7 +26,7 @@ submission_upload_nargab_2026-06-04/
 ├── cover_letter.md                      # NAR Ge&B cover letter
 ├── manuscript/
 │   ├── CADE_NARGeB_manuscript.md        # NAR Ge&B-adapted manuscript
-│   └── CADE_NARGeB_manuscript.docx      # Word version (to be generated)
+│   └── CADE_NARGeB_manuscript.docx      # Word version for journal upload
 ├── figures/                             # All TIFs (< 10MB each)
 ├── tables/                              # 8 main text tables (CSV)
 ├── supplementary/                       # Consolidated Supplementary Tables

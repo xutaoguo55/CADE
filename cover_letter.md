@@ -1,6 +1,6 @@
 # Cover Letter — NAR Genomics and Bioinformatics
 
-**Date:** June 4, 2026
+**Date:** June 9, 2026
 
 **To:** The Editors, *NAR Genomics and Bioinformatics*
 
@@ -14,7 +14,7 @@ We submit the manuscript "CADE: a reference-free coefficient-sensitivity ranking
 
 CADE addresses a specific gap in rare-disease bulk transcriptomics: matched single-cell references are unavailable, yet cell-composition shifts can dominate apparent DE. CADE reports a per-gene Composition Confounding Index (CCI) that ranks coefficients from adjustment-stable to adjustment-sensitive, with signed attenuation/amplification/reversal labels, marker-dropout bootstrap rank stability, label-permutation calibration, threshold scans, stabilised-denominator diagnostics and an isometric log-ratio (ILR) coordinate-sensitivity layer. The workflow is benchmarked on six datasets (synthetic composition-bias gradient: AUROC 0.996 vs 0.902 for unadjusted limma at 100% bias; PBMC: r = 0.993; sparse-marker scRNA-seq stress test; two independent sepsis cohorts; MAS pseudobulk validation: r = 0.779, 7/8 cell types p < 0.001) and applied to FHL peripheral blood mononuclear cells (GSE26050; n = 11 untreated FHL vs 30 healthy controls), identifying *SLC7A11* as the most composition-stable ferroptosis candidate (rank-stability probability 0.835).
 
-All data are public (GEO: GSE26050, GSE28750, GSE66099, GSE207633). The code archive (MIT license), `renv.lock`, Zenodo metadata, a public GitHub repository, and a `run_all.R` driver are provided. The study uses de-identified data, declares no competing interests, no specific funding, and discloses AI-assisted language editing (Claude) with author responsibility for content.
+All data are public (GEO: GSE26050, GSE28750, GSE66099, GSE207633). The code archive (MIT license), `renv.lock`, public GitHub release (`https://github.com/xutaoguo55/CADE/releases/tag/v1.1.0`), restricted Zenodo archive (DOI: `10.5281/zenodo.20603524`), and a `run_all.R` driver are provided. The study uses de-identified data, declares no competing interests, no specific funding, and discloses AI-assisted language editing (Claude) with author responsibility for content.
 
 Sincerely,
 
