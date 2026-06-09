@@ -48,7 +48,7 @@
       "resource_type": "software"
     },
     {
-      "identifier": "https://github.com/xutaoguo55/CADE/releases/tag/v1.1.0",
+      "identifier": "https://github.com/xutaoguo55/CADE",
       "relation": "isSupplementTo",
       "scheme": "url",
       "resource_type": "software"

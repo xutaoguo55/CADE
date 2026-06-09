@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use CADE, please cite the manuscript and archived software release."
+message: "If you use CADE, please cite the manuscript and archived software package."
 title: "CADE: a reference-free coefficient-sensitivity ranking workflow for bulk differential expression"
 version: "1.1.0"
 date-released: "2026-06-01"

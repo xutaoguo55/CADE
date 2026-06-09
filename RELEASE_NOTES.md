@@ -32,6 +32,6 @@ This release accompanies the CADE manuscript as a reference-free coefficient-sen
 ### Implementation Notes
 
 - The current implementation is script-based rather than a formal R package.
-- Public GitHub release: `https://github.com/xutaoguo55/CADE/releases/tag/v1.1.0`.
+- Public GitHub repository: `https://github.com/xutaoguo55/CADE`.
 - Restricted Zenodo record: `https://zenodo.org/records/20603524` (DOI: `10.5281/zenodo.20603524`).
 - The FHL biological application is used as a reproducible disease-focused demonstration and is interpreted through the CADE sensitivity framework.

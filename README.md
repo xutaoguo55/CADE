@@ -56,7 +56,7 @@ submission_upload_nargab_2026-06-04/
 - **Tables:** 5 main + 8 supplementary groups
 - **References:** 28 (Vancouver style, DOIs included)
 - **Data availability:** 4 GEO accessions, all publicly available
-- **Code availability:** MIT-licensed software archive, `renv.lock`, dependency notes, public GitHub release, and restricted Zenodo record DOI `10.5281/zenodo.20603524`
+- **Code availability:** MIT-licensed software archive, `renv.lock`, dependency notes, public GitHub repository, and restricted Zenodo record DOI `10.5281/zenodo.20603524`
 - **CRediT authorship:** complete
 - **AI use disclosure:** explicit statement included
 - **Competing interests:** declared none
@@ -77,7 +77,7 @@ submission_upload_nargab_2026-06-04/
 ## Archival notes
 
 - The submission package consolidates figures, tables, code, and supplementary data.
-- GitHub release: `https://github.com/xutaoguo55/CADE/releases/tag/v1.1.0`
+- GitHub repository: `https://github.com/xutaoguo55/CADE`
 - Restricted Zenodo record: `https://zenodo.org/records/20603524` (DOI: `10.5281/zenodo.20603524`)
 
 

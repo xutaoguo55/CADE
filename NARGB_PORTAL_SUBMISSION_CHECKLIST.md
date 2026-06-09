@@ -48,7 +48,7 @@ All raw transcriptomic data analysed in this study are publicly available from t
 
 ## Code availability
 
-CADE v1.1.0 is available from the public GitHub release at `https://github.com/xutaoguo55/CADE/releases/tag/v1.1.0`. The restricted Zenodo archive is available at DOI `10.5281/zenodo.20603524`. Code is released under the MIT License.
+CADE v1.1.0 is included in the submission software package and mirrored in the public GitHub repository at `https://github.com/xutaoguo55/CADE`. The restricted Zenodo archive is available at DOI `10.5281/zenodo.20603524`. Code is released under the MIT License.
 
 ## Declarations
 
@@ -60,4 +60,4 @@ CADE v1.1.0 is available from the public GitHub release at `https://github.com/x
 
 ## Final upload checksum
 
-Use the SHA256 recorded in the GitHub release notes for `CADE_NARGeB_submission_upload_2026-06-09_final_with_restricted_zenodo.zip`.
+Use the local SHA256 recorded in `CHECKSUMS_SHA256.txt` for `CADE_NARGeB_submission_upload_2026-06-09_final_with_restricted_zenodo.zip`.
