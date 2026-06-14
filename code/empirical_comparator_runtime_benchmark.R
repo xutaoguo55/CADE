@@ -410,9 +410,33 @@ write_captioned_csv <- function(df, path, caption) {
   utils::write.table(df, con, sep = ",", row.names = FALSE, col.names = TRUE, qmethod = "double")
 }
 
+normalise_tiff_metadata <- function(path) {
+  py <- Sys.which("python3")
+  if (!nzchar(py)) {
+    warning("python3 not found; leaving TIFF metadata unchanged: ", path)
+    return(invisible(FALSE))
+  }
+  script <- tempfile(fileext = ".py")
+  writeLines(c(
+    "import sys",
+    "from PIL import Image",
+    "path = sys.argv[1]",
+    "img = Image.open(path)",
+    "if img.mode != 'RGB':",
+    "    img = img.convert('RGB')",
+    "img.save(path, dpi=(300, 300), compression='tiff_lzw')"
+  ), script)
+  status <- system2(py, c(script, path), stdout = TRUE, stderr = TRUE)
+  if (!identical(attr(status, "status"), NULL)) {
+    warning("Could not normalise TIFF metadata for ", path, ": ", paste(status, collapse = " "))
+    return(invisible(FALSE))
+  }
+  invisible(TRUE)
+}
+
 plot_summary <- function(comp_summary, runtime_df) {
-  tif_path <- file.path(FIG_DIR, "SuppFigure_S11_Comparator_Runtime_Benchmark.tif")
-  png_path <- file.path(PNG_DIR, "SuppFigure_S11_Comparator_Runtime_Benchmark.png")
+  tif_path <- file.path(FIG_DIR, "Supplementary_Figure_S11_Comparator_Runtime_Benchmark.tif")
+  png_path <- file.path(PNG_DIR, "Supplementary_Figure_S11_Comparator_Runtime_Benchmark.png")
   draw <- function() {
     old <- par(no.readonly = TRUE)
     on.exit(par(old), add = TRUE)
@@ -463,6 +487,7 @@ plot_summary <- function(comp_summary, runtime_df) {
   tiff(tif_path, width = 8.5, height = 7.0, units = "in", res = 300, compression = "lzw")
   draw()
   dev.off()
+  normalise_tiff_metadata(tif_path)
   png(png_path, width = 8.5, height = 7.0, units = "in", res = 300)
   draw()
   dev.off()

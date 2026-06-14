@@ -1,7 +1,7 @@
 # CADE Reproducibility Guide
 
 **Version:** 1.1.0  
-**Last updated:** 2026-06-09  
+**Last updated:** 2026-06-14
 
 ---
 
@@ -55,13 +55,12 @@ sessionInfo()
 
 ## Expected Outputs
 
-After a successful run, the following directories are populated:
+After a successful run, the following directories are populated locally:
 
 | Path | Contents |
 |------|----------|
 | `analysis_output/CADE/` | CADE DE results, CCI tables, ILR outputs |
-| `figures/` | Regenerated figures (TIF format) |
-| `results/resolution_study/` | Parameter sweep outputs |
+| `figures/` | Regenerated figures (TIF format; generated locally, not tracked in this public repository) |
 
 ## Key Scripts
 

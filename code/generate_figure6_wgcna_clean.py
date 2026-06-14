@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate Figure 6 with readable WGCNA panels."""
+"""Regenerate Supplementary Figure S9 with readable WGCNA panels."""
 
 from pathlib import Path
 
@@ -7,11 +7,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from matplotlib.patches import Patch
+from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PNG_OUT = ROOT / "manuscript" / "docx_embedded_figures_png" / "Figure6_WGCNA_Modules.png"
-TIF_OUT = ROOT / "figures" / "Figure6_WGCNA_Modules.tif"
+PNG_OUT = ROOT / "manuscript" / "docx_embedded_figures_png" / "Supplementary_Figure_S9_WGCNA_Modules.png"
+TIF_OUT = ROOT / "figures" / "Supplementary_Figure_S9_WGCNA_Modules.tif"
+
+
+def table_path(name: str) -> Path:
+    candidates = [
+        ROOT / "supplementary" / name,
+        ROOT / "supplementary" / "raw_csv_components" / name,
+    ]
+    for path in candidates:
+        if path.exists():
+            return path
+    raise FileNotFoundError(f"Could not find {name} in supplementary tables")
 
 
 GENE_PANEL = {
@@ -72,8 +84,8 @@ def radial_network(ax, hub: pd.DataFrame, module: int, corr: float) -> None:
 
 
 def main() -> None:
-    modules = pd.read_csv(ROOT / "supplementary" / "Table_S09_WGCNA_Module_FHL.csv")
-    hub = pd.read_csv(ROOT / "supplementary" / "Table_S11_WGCNA_Hub_Genes.csv")
+    modules = pd.read_csv(table_path("Table_S09_WGCNA_Module_FHL.csv"))
+    hub = pd.read_csv(table_path("Table_S11_WGCNA_Hub_Genes.csv"))
 
     plt.rcParams.update({
         "font.family": "DejaVu Sans",
@@ -83,7 +95,7 @@ def main() -> None:
         "grid.alpha": 0.25,
     })
     fig, axes = plt.subplots(2, 2, figsize=(15.5, 11), dpi=300)
-    fig.suptitle("Figure 6 | WGCNA co-expression modules associated with FHL PBMC",
+    fig.suptitle("Supplementary Figure S9 | WGCNA co-expression modules associated with FHL PBMC",
                  fontsize=16, weight="bold", y=0.985)
 
     # Panel A: all modules, sorted by correlation.
@@ -164,6 +176,7 @@ def main() -> None:
     TIF_OUT.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(PNG_OUT, dpi=300)
     fig.savefig(TIF_OUT, dpi=300)
+    Image.open(TIF_OUT).convert("RGB").save(TIF_OUT, dpi=(300, 300), compression="tiff_lzw")
     plt.close(fig)
     print(f"Wrote {PNG_OUT}")
     print(f"Wrote {TIF_OUT}")

@@ -1,0 +1,6 @@
+"Method","Reference","Benchmark_Type","Mean_Pearson_r","Requires_External_Reference"
+"CIBERSORTx","Newman 2019, Nat Biotechnol","LM22 ground truth","~0.85","Yes (scRNA-seq signature)"
+"EPIC","Racle 2017, eLife","PBMC flow cytometry","~0.80","Yes (scRNA-seq signature)"
+"Bisque","Jew 2020, Nat Commun","scRNA-seq ground truth","~0.82","Yes (scRNA-seq reference)"
+"MuSiC","Wang 2019, Nat Commun","scRNA-seq ground truth","~0.88","Yes (scRNA-seq reference)"
+"CADE (this study)","This study","Synthetic PBMC ground truth","0.993","No (marker genes only)"

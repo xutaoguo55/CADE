@@ -1,96 +1,91 @@
-# CADE Submission Package — NAR Genomics and Bioinformatics
+# CADE
 
-**Manuscript Title:** CADE: a reference-free coefficient-sensitivity ranking workflow for bulk differential expression
+CADE is a reference-free coefficient-sensitivity ranking workflow for bulk transcriptomic differential-expression studies where cell-composition shifts are expected but disease-matched single-cell references are unavailable.
 
-**Target Journal:** NAR Genomics and Bioinformatics (Original Article — Method/Software)
+The workflow derives marker-based relative composition weights, fits paired unadjusted and composition-adjusted limma models, and reports per-gene coefficient-sensitivity outputs: Composition Confounding Index (CCI), signed coefficient-change labels, denominator handling, bootstrap rank stability, permutation calibration, threshold scans, and ILR coordinate sensitivity.
 
-**Submission Date:** 2026-06-04
+## Repository Scope
 
-**Authors:** Haiqing Zheng, Qi Wei, Hongbing Jiang, Junwei Huang, Xiaolei Wei, Yongqiang Wei, Ru Feng, Xutao Guo
+This public GitHub repository contains the code, environment files, metadata, main result tables, and supplementary result tables needed to inspect and rerun the CADE workflow. It intentionally does not include the journal submission portal package, cover letter, manuscript DOCX/PDF files, internal review notes, or generated upload archives.
 
-**Correspondence:** Xutao Guo (gxt827@126.com) — ORCID 0000-0001-6191-2204
+The archived review package is available as a restricted Zenodo record:
 
----
+- Zenodo record: https://zenodo.org/records/20603524
+- DOI: `10.5281/zenodo.20603524`
+- Access right: restricted, for editorial/reviewer access
 
-## Package Structure
+## Contents
 
-```
-submission_upload_nargab_2026-06-04/
-├── README.md
-├── LICENSE                              # MIT
-├── renv.lock                            # Reproducible R environment lockfile
-├── CITATION.cff                         # Citation metadata
-├── .zenodo.json                         # Zenodo metadata template
-├── RELEASE_NOTES.md                     # Software release notes
-├── CADE_public_software_v1.1.0_2026-06-01.zip   # Release-ready software archive
-├── cover_letter.md                      # NAR Ge&B cover letter
-├── manuscript/
-│   ├── CADE_NARGeB_manuscript.md        # NAR Ge&B-adapted manuscript
-│   └── CADE_NARGeB_manuscript.docx      # Word version for journal upload
-├── figures/                             # All TIFs (< 10MB each)
-├── tables/                              # 8 main text tables (CSV)
-├── supplementary/                       # Consolidated Supplementary Tables
-│   ├── CADE_Supplementary_Tables_S1-S8.xlsx
-│   └── raw_csv_components/              # Original CSV/MD components
-├── code/                                # Analysis scripts (R + Python)
-│   ├── run_all.R                        # End-to-end driver
-│   ├── cade_method.R
-│   ├── cade_ilr_uncertainty.R
-│   ├── validate_cade_ilr_multiseed.R
-│   ├── ...
-│   ├── README.md
-│   ├── README_RUN_ORDER.md
-│   └── DEPENDENCIES.md
+```text
+.
+├── code/                  # R and Python analysis scripts
+├── tables/                # Main result and benchmark CSV tables
+├── supplementary/         # Supplementary workbook and raw CSV components
+├── supplementary_index.md # Supplementary table index
+├── Dockerfile             # Containerized reproduction entry point
+├── environment.yml        # Conda environment
+├── renv.lock              # R package lockfile
+├── REPRODUCIBILITY.md     # Run instructions and expected outputs
+├── CITATION.cff           # Citation metadata
+├── .zenodo.json           # Zenodo metadata
+├── LICENSE                # MIT license
+└── LICENSE_CODE.md        # Code license details
 ```
 
----
+## Quick Start
 
-## NAR Ge&B Submission Requirements Met
+With Docker:
 
-- **Article type:** Original Article (Method/Software)
-- **License:** CC-BY (default for NAR Ge&B) — released under MIT for code
-- **Title length:** ~190 characters (within typical NAR Ge&B limits)
-- **Abstract length:** ~280 words (within typical NAR Ge&B limits)
-- **Main text length:** ~7,000 words (within typical Original Article limits)
-- **Figures:** 7 main + 7 supplementary (within typical limits)
-- **Tables:** 5 main + 8 supplementary groups
-- **References:** 28 (Vancouver style, DOIs included)
-- **Data availability:** 4 GEO accessions, all publicly available
-- **Code availability:** MIT-licensed software archive, `renv.lock`, dependency notes, public GitHub repository, and restricted Zenodo record DOI `10.5281/zenodo.20603524`
-- **CRediT authorship:** complete
-- **AI use disclosure:** explicit statement included
-- **Competing interests:** declared none
-- **Funding:** declared none
+```bash
+docker build -t cade:1.1.0 .
+docker run --rm -v "$(pwd)/analysis_output:/cade/analysis_output" cade:1.1.0
+```
 
----
+With Conda:
 
-## Reproducibility
+```bash
+conda env create -f environment.yml
+conda activate cade
+Rscript code/run_all.R --skip-benchmarks
+```
 
-- **R:** 4.4.0+ (locked via `renv.lock`; tested on R 4.5.3)
-- **Key packages:** limma 3.62.1, GSVA 2.4.9, WGCNA 1.72-5, GEOquery 2.74.1, quadprog 1.5-8, pROC 1.18.5
-- **Python:** 3.9+ for figure regeneration
-- **Random seeds:** All stochastic steps use `set.seed(42)` or equivalent
-- **End-to-end runtime:** ~19 minutes (full); ~12 minutes (--skip-benchmarks)
+Full benchmark reproduction:
 
----
+```bash
+Rscript code/run_all.R
+```
 
-## Archival notes
+Expected runtime is approximately 12 minutes for `--skip-benchmarks` and 20-21 minutes for the full workflow on the current development machine.
 
-- The submission package consolidates figures, tables, code, and supplementary data.
-- GitHub repository: `https://github.com/xutaoguo55/CADE`
-- Restricted Zenodo record: `https://zenodo.org/records/20603524` (DOI: `10.5281/zenodo.20603524`)
+## Key Scripts
 
+- `code/run_all.R`: end-to-end driver
+- `code/cade_method.R`: core CADE weight estimation, paired limma models, and CCI outputs
+- `code/cade_ilr_uncertainty.R`: ILR coordinate-sensitivity and rank-stability workflow
+- `code/validate_cade_ilr_multiseed.R`: multi-seed bootstrap robustness checks
+- `code/benchmark_method_comparison.R`: multi-method benchmark comparison
+- `code/empirical_comparator_runtime_benchmark.R`: empirical comparator and runtime/scalability benchmark
+- `code/generate_model_metadata_table.R`: model formula, parameter, and collinearity diagnostics
 
-## Reproducibility verification
+## Data Sources
 
-The `renv.lock` file is the authoritative version record. To verify reproducibility:
-1. Open the project in R 4.4.0+ with `renv` installed
-2. Run `renv::restore()` to install the exact R package versions
-3. Run `Rscript code/run_all.R --skip-benchmarks` for a ~12-minute end-to-end FHL analysis
-4. Run `Rscript code/run_all.R` for a ~20-21-minute full pipeline including benchmarks and reviewer-facing diagnostics
+The workflow uses public GEO datasets:
 
-Expected outputs are written to `analysis_output/CADE/` and `figures/`. The submission package also includes the consolidated `CADE_Supplementary_Tables_S1-S8.xlsx` workbook for direct comparison with published results.
+- GSE26050: FHL PBMC worked example
+- GSE28750: sepsis whole-blood validation
+- GSE66099: paediatric SIRS/sepsis validation
+- GSE207633: MAS scRNA-seq pseudobulk validation
 
-## Graphical Abstract
+## Citation
 
-NAR Genomics and Bioinformatics does not require a graphical abstract. The Figure 1 schematic (workflow) and Figure 2 (benchmark) together provide the visual entry point to the manuscript.
+If you use CADE, cite the manuscript and archived software package. Citation metadata are provided in `CITATION.cff`.
+
+```text
+CADE: a reference-free coefficient-sensitivity ranking workflow for bulk differential expression.
+Zenodo DOI: 10.5281/zenodo.20603524
+Repository: https://github.com/xutaoguo55/CADE
+```
+
+## License
+
+The code is released under the MIT License. See `LICENSE` and `LICENSE_CODE.md`.

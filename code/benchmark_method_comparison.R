@@ -9,9 +9,20 @@ suppressPackageStartupMessages({
 })
 set.seed(42)
 
-PR <- "/Users/guoxutao/.openclaw/workspace/HLH_Research/CADE_Submission_Package"
-SRC <- file.path(PR, "submission_upload_nargab_2026-06-04")
-OUT <- file.path(SRC, "analysis_output", "benchmark_comparison")
+get_script_dir <- function() {
+  file_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
+  if (length(file_arg) > 0) {
+    return(dirname(normalizePath(sub("^--file=", "", file_arg[1]))))
+  }
+  if (!is.null(sys.frames()[[1]]$ofile)) {
+    return(dirname(normalizePath(sys.frames()[[1]]$ofile)))
+  }
+  getwd()
+}
+
+CODE_DIR <- get_script_dir()
+PROJECT_ROOT <- normalizePath(file.path(CODE_DIR, ".."), mustWork = TRUE)
+OUT <- file.path(PROJECT_ROOT, "analysis_output", "benchmark_comparison")
 dir.create(OUT, showWarnings = FALSE, recursive = TRUE)
 
 cat("=== CADE Multi-Method Benchmark v4 ===\n")

@@ -51,7 +51,7 @@ CODE_DIR <- file.path(PROJECT_ROOT, "code")
 
 if (!file.exists(file.path(PROJECT_ROOT, "README.md")) ||
     !dir.exists(CODE_DIR) ||
-    !dir.exists(file.path(PROJECT_ROOT, "manuscript"))) {
+    !file.exists(file.path(CODE_DIR, "cade_method.R"))) {
   stop(sprintf("Could not resolve CADE package root from script directory: %s", SCRIPT_DIR))
 }
 

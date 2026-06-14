@@ -439,6 +439,28 @@ cade_bootstrap <- function(expr_mat, marker_list, group, n_bootstrap=100,
 
   key_genes <- intersect(key_genes, rownames(expr_mat))
 
+  empty_summary <- function() {
+    data.frame(
+      Gene = character(),
+      logFC_adj_median = numeric(),
+      logFC_adj_lower = numeric(),
+      logFC_adj_upper = numeric(),
+      CCI_median = numeric(),
+      CCI_lower = numeric(),
+      CCI_upper = numeric(),
+      CCI_rank_median = numeric(),
+      CCI_rank_lower = numeric(),
+      CCI_rank_upper = numeric(),
+      Prob_CCI_lt_0_2 = numeric(),
+      Prob_CCI_gt_0_5 = numeric(),
+      Prob_top5_low_CCI = numeric(),
+      Bootstrap_Evaluable = integer(),
+      CCI_variant = character(),
+      CompositionTransform = character(),
+      stringsAsFactors = FALSE
+    )
+  }
+
   # Storage
   boot_props <- array(NA, dim=c(n_ct, ncol(expr_mat), n_bootstrap),
                       dimnames=list(ct_names, colnames(expr_mat), NULL))
@@ -494,6 +516,17 @@ cade_bootstrap <- function(expr_mat, marker_list, group, n_bootstrap=100,
   if(isTRUE(verbose)) close(pb)
 
   top_k <- min(5, length(key_genes))
+
+  if(length(key_genes) == 0) {
+    warning("No requested key genes were present in the expression matrix; returning empty bootstrap summary.")
+    return(list(
+      prop_dist = boot_props,
+      logFC_dist = boot_logFC,
+      CCI_dist = boot_CCI,
+      CCI_rank_dist = boot_CCI_rank,
+      summary = empty_summary()
+    ))
+  }
 
   # Summarize bootstrap distributions
   boot_summary <- data.frame(
@@ -642,8 +675,10 @@ benchmark_cade <- function(synth, n_bootstrap=100) {
 
   # 4. CADE with bootstrap
   cat("  Running CADE bootstrap...\n")
+  synthetic_key_genes <- synth$de_genes[seq_len(min(10, length(synth$de_genes)))]
   boot_res <- cade_bootstrap(synth$bulk_expr, synth$marker_list,
-                             synth$group, n_bootstrap=n_bootstrap)
+                             synth$group, n_bootstrap=n_bootstrap,
+                             key_genes=synthetic_key_genes)
 
   # --- Evaluation ---
   # A. Proportion estimation accuracy

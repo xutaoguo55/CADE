@@ -1,16 +1,28 @@
 #!/usr/bin/env python3
-"""Regenerate Figure 5 with separated titles and non-overlapping labels."""
+"""Regenerate Supplementary Figure S8 with separated titles and non-overlapping labels."""
 
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PNG_OUT = ROOT / "manuscript" / "docx_embedded_figures_png" / "Figure5_Pathway_Analysis.png"
-TIF_OUT = ROOT / "figures" / "Figure5_Pathway_Analysis.tif"
+PNG_OUT = ROOT / "manuscript" / "docx_embedded_figures_png" / "Supplementary_Figure_S8_Pathway_Analysis.png"
+TIF_OUT = ROOT / "figures" / "Supplementary_Figure_S8_Pathway_Analysis.tif"
+
+
+def table_path(name: str) -> Path:
+    candidates = [
+        ROOT / "supplementary" / name,
+        ROOT / "supplementary" / "raw_csv_components" / name,
+    ]
+    for path in candidates:
+        if path.exists():
+            return path
+    raise FileNotFoundError(f"Could not find {name} in supplementary tables")
 
 
 def panel_label(ax, label: str, title: str) -> None:
@@ -34,8 +46,8 @@ def pretty(name: str) -> str:
 
 
 def main() -> None:
-    ferro = pd.read_csv(ROOT / "supplementary" / "Table_S06_Ferroptosis_GSVA_Scores.csv")
-    death = pd.read_csv(ROOT / "supplementary" / "Table_S07_CellDeath_Pathways.csv")
+    ferro = pd.read_csv(table_path("Table_S06_Ferroptosis_GSVA_Scores.csv"))
+    death = pd.read_csv(table_path("Table_S07_CellDeath_Pathways.csv"))
 
     order_ferro = ["Iron_Homeostasis", "Ferroptosis_Core", "Ferroptosis_Defense",
                    "GSH_Metabolism", "Ferroptosis_Drivers"]
@@ -60,7 +72,7 @@ def main() -> None:
 
     fig, axes = plt.subplots(1, 3, figsize=(18, 6.3), dpi=300,
                              gridspec_kw={"width_ratios": [1.28, 1.28, 1.55]})
-    fig.suptitle("Figure 5 | Pathway-level patterns from per-sample GSVA",
+    fig.suptitle("Supplementary Figure S8 | Pathway-level patterns from per-sample GSVA",
                  fontsize=16, weight="bold", y=0.98)
 
     # Panel A
@@ -142,6 +154,7 @@ def main() -> None:
     TIF_OUT.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(PNG_OUT, dpi=300)
     fig.savefig(TIF_OUT, dpi=300)
+    Image.open(TIF_OUT).convert("RGB").save(TIF_OUT, dpi=(300, 300), compression="tiff_lzw")
     plt.close(fig)
     print(f"Wrote {PNG_OUT}")
     print(f"Wrote {TIF_OUT}")

@@ -1,0 +1,12 @@
+Gene,FHL_logFC,FHL_FDR,CAEBV_logFC,CAEBV_FDR,Direction,Function
+IFNG,1.08,0.0070,3.20,7.3e-33,UpUp,Interferon gamma
+JAK2,-0.85,2.4e-5,1.91,5.3e-109,Discordant,JAK-STAT signaling
+STAT1,0.06,0.80,1.53,7.4e-275,Up,JAK-STAT signaling
+STAT3,0.89,1.4e-6,0.09,5.7e-19,Up,JAK-STAT signaling
+GPX4,0.35,0.022,-1.22,0,Discordant,Ferroptosis defense
+FTH1,1.13,2.0e-7,1.01,0,UpUp,Iron storage
+FTL,0.29,0.014,0.82,0,UpUp,Iron storage
+SLC25A37,2.60,2.3e-10,2.14,1.0e-98,UpUp,Mitochondrial iron transporter
+CXCL8,4.86,5.5e-17,29.89,2.6e-301,UpUp,Neutrophil chemotaxis
+TNF,2.62,3.3e-11,1.08,0.71,UpUp,Cytokine
+IL6,3.54,5.6e-8,0.33,1.0,UpUp,Cytokine
